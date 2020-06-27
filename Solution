@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int k, x, N, k1, k26, k13, k2, i;
+	cin >> N;
+	k = 0; k1 = 0; k2 = 0; k13 = 0; k26 = 0;
+	for (i = 0; i < N; i++) {
+		cin >> x;
+		if ((x % 26 == 0) and (k1 > 0)) {
+			k = k + k1;
+		}
+		else if ((x % 13 == 0) and (k2 > 0)){
+			k = k + k2;
+		}
+		else if ((x % 2 == 0) and (k13 > 0)) {
+			k = k + k13;
+		}
+		else if (k26 > 0) {
+			k = k + k26;
+		}
+
+		if (x % 26 == 0) { k26++; }
+		if (x % 13 == 0) { k13++; }
+		if (x % 2 == 0) { k2++; }
+		k1++;
+	}
+	cout << k;
+}
